@@ -1,6 +1,17 @@
-#include <iostream>
 #include <cmath>
 #include "vec2.h"
+#include <ctime>
+
+float lerp(float start, float end, float alpha)
+{
+	return start + alpha * (end - start);
+}
+
+float randRange(float min, float max)
+{
+	float alpha = rand() / (RAND_MAX * 1.f);
+	return min + alpha * (max - min);
+}
 
 float distance(vec2 a, vec2 b)
 {

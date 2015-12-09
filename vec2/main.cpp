@@ -1,7 +1,5 @@
-#include <iostream>
 #include "player.h"
 #include "GameState.h"
-#include "sfwdraw.h"
 #include "declconst.h"
 
 int main()
@@ -10,15 +8,12 @@ int main()
 		             WINDOW_HEIGHT,
 		            "Invaders From Space");
 
-	Player go((BOUNDS_RIGHT+BOUNDS_LEFT)/2,
-		                         BOUNDS_BOTTOM);
-
 	GameState gs;
 
-	while (sfw::stepContext())
+	while (sfw::stepContext() && !sfw::getKey(KEY_ESCAPE))
 	{
-		go.update();
-		go.draw();
+		gs.update();
+		gs.draw();
 	}
 	
 	sfw::termContext();

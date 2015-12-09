@@ -7,3 +7,5 @@
 #define BOUNDS_BOTTOM 30
 #define BOUNDS_LEFT   10
 #define BOUNDS_RIGHT  790
+
+class GameState;
