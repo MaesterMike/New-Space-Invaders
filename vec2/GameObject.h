@@ -22,9 +22,17 @@ public:
 	void update();
 	void draw();
 
-	virtual void onUpdate() {}
-	virtual void onDraw()   {}
+	void setInactive()
+	{
+		if (!active) return;
+		active = false;
+		onInactive();
+	}
+
+	virtual void onUpdate()   {}
+	virtual void onDraw()     {}
 	virtual void onCollision(GameObject &o) {}
+	virtual void onInactive() {}
 };
 
 void collides(GameObject &a, GameObject &b);

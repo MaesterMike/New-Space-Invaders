@@ -8,6 +8,13 @@ int main()
 		             WINDOW_HEIGHT,
 		            "Invaders From Space");
 
+	sfw::loadTextureMap("./textures/Space.jpeg");
+	sfw::loadTextureMap("./textures/Player.png");
+	sfw::loadTextureMap("./textures/bullet.png");
+	sfw::loadTextureMap("./textures/Enemy.gif");
+	sfw::loadTextureMap("./textures/OtherEnemy.gif");
+	sfw::loadTextureMap("./textures/Explosions.png");
+
 	GameState gs;
 
 	while (sfw::stepContext() && !sfw::getKey(KEY_ESCAPE))

@@ -3,6 +3,7 @@
 
 class Particle : public GameObject
 {
+public:
 	float startRadius, endRadius;
 	float lifespan, lifetime;
 

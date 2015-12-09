@@ -8,4 +8,13 @@
 #define BOUNDS_LEFT   10
 #define BOUNDS_RIGHT  790
 
+#define ORANGE 0xffA500ff;
+
 class GameState;
+
+extern unsigned spriteSpace;
+extern unsigned spritePlayer;
+extern unsigned spriteBullet;
+extern unsigned spriteEnemy;
+extern unsigned spriteOtherEnemy;
+extern unsigned spriteExplosion;

@@ -2,17 +2,20 @@
 #include "sfwdraw.h"
 #include "declconst.h"
 #include "GameState.h"
+#include "GameObject.h"
 
 void Player::onUpdate()
 {
 	velocity = { 0,0 };
 
 	delay += sfw::getDeltaTime();
-	if (sfw::getKey(' ') && delay > rof)
+	if (sfw::getKey(' ') && !firingKeyState && delay > rof)
 	{
 		delay = 0;
 		gs->spawnBullet(position.x, position.y, 300);
 	}
+
+	firingKeyState = sfw::getKey(' ');
 
 	if (sfw::getKey(KEY_LEFT))
 	{
@@ -23,16 +26,6 @@ void Player::onUpdate()
 	{
 		velocity.x = speed;
 	}
-
-	/*if (sfw::getKey(KEY_DOWN))
-	{
-		velocity.y = -speed;
-	}
-
-	if (sfw::getKey(KEY_UP))
-	{
-		velocity.y = speed;
-	}*/
 
 	if (position.x - radius < BOUNDS_LEFT)
 	{
@@ -48,11 +41,6 @@ void Player::onUpdate()
 	{
 		position.y = BOUNDS_BOTTOM + radius;
 	}
-
-	/*if (position.y + radius > BOUNDS_TOP)
-	{
-		position.y = BOUNDS_TOP - radius;
-	}*/
 }
 
 void Player::onCollision(GameObject &o)
@@ -69,4 +57,9 @@ void Player::onCollision(GameObject &o)
 		case 0: active = false; break;
 		}
 	}
+}
+
+void Player::onInactive()
+{
+	//gs->spawnParticle();
 }

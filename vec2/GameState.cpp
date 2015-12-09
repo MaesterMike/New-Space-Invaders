@@ -36,6 +36,21 @@ void GameState::draw()
 		Bullets[i].draw();
 	for (int i = 0; i < Enemies.size(); ++i)
 		Enemies[i].draw();
+	for (int i = 0; i < particles.size(); ++i)
+		particles[i].draw();
+}
+
+void GameState::spawnParticle(float x, float y, float a_startRadius, float a_endRadius,
+	float a_lifetime, unsigned a_color)
+{
+	Particle b(x, y, a_startRadius, a_endRadius, a_lifetime, a_color);
+
+	for (int i = 0; i < particles.size(); ++i)
+		if (!particles[i].active)
+		{
+			particles[i] = b;
+			return;
+		}
 }
 
 void GameState::spawnBullet(float x, float y, float a_speed)
