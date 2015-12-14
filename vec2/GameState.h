@@ -13,6 +13,7 @@ public:
 	std::vector<bullet> Bullets;
 	std::vector<Enemy> Enemies;
 	std::vector<Particle> particles;
+
 	float spawnRate;
 	float spawnDelay;
 	unsigned score;

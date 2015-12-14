@@ -12,7 +12,7 @@ public:
 		float a_lifetime, unsigned a_color)
 		
 		: GameObject(x, y, a_startRadius), 
-		endRadius(a_endRadius),
+		endRadius(a_endRadius), startRadius(a_startRadius),
 		lifespan(0), lifetime(a_lifetime)
 	{
 		color = a_color;

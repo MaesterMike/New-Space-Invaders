@@ -54,12 +54,15 @@ void Player::onCollision(GameObject &o)
 		{
 		case 2: color  = YELLOW; break;
 		case 1: color  = RED; break;
-		case 0: active = false; break;
+		case 0: setInactive(); break;
 		}
 	}
 }
 
 void Player::onInactive()
 {
-	//gs->spawnParticle();
+	gs->spawnParticle(position.x, position.y, 0, 600, .2f, RED);
+	gs->spawnParticle(position.x, position.y, 3, 15, .4f, YELLOW);
+	gs->spawnParticle(position.x, position.y, 12, 0, .3f, MAGENTA);
+	gs->spawnParticle(position.x, position.y, 15, 24, .6f, GREEN);
 }
