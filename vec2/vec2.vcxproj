@@ -123,19 +123,26 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="vec2.cpp" />
+    <ClCompile Include="Victory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseState.h" />
     <ClInclude Include="bullet.h" />
     <ClInclude Include="declconst.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="PauseState.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="sfwdraw.h" />
+    <ClInclude Include="SplashState.h" />
     <ClInclude Include="vec2.h" />
+    <ClInclude Include="Victory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

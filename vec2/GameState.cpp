@@ -1,4 +1,6 @@
 #include "GameState.h"
+#include <string>
+#include <fstream>
 
 void GameState::update()
 {
@@ -32,11 +34,33 @@ void GameState::update()
 	for (int i = 0; i+1 < Enemies.size(); ++i)
 		for (int j = i+1; j < Bullets.size(); ++j)
 			collides(Enemies[i], Bullets[j]);
+
+	if (applicationState == GAME)
+	{
+		if (!player.active)
+		{
+			//in, out (creates if not exists, overwrites), app (adds to end of file)
+			std::fstream fout("scores.dat", std::ios_base::out | std::ios_base::app);
+			fout << score << std::endl;
+			fout.close();
+
+			applicationState = VICTORY;
+		}
+
+		if (sfw::getKey('P'))
+			applicationState = PAUSE;
+	}
+	else
+	{
+		player.setInactive();
+		spawnRate = 1.8f;
+	}
 }
 
 void GameState::draw()
 {
-	sfw::drawTexture(spriteSpace, WINDOW_WIDTH, WINDOW_HEIGHT);
+	sfw::drawTexture(spriteSpace, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2,
+		WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	player.draw();
 	for (int i = 0; i < Bullets.size(); ++i)
@@ -45,6 +69,9 @@ void GameState::draw()
 		Enemies[i].draw();
 	for (int i = 0; i < particles.size(); ++i)
 		particles[i].draw();
+
+	sfw::drawString(spriteFont, std::to_string(score).c_str(),
+		                                       0, WINDOW_HEIGHT, 20, 20);
 }
 
 void GameState::spawnParticle(float x, float y, float a_startRadius, float a_endRadius,

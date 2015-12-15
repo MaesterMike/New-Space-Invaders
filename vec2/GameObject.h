@@ -17,8 +17,7 @@ public:
 
 	GameObject::GameObject(float x, float y, float radius)
 		: position({ x, y }), speed(0), color(MAGENTA),
-		  velocity({ 0, 0 }), radius(radius), active(true),
-		sprite(spriteExplosion)
+		  velocity({ 0, 0 }), radius(radius), active(true)
 	    { }
 
 	void update();

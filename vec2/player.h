@@ -13,7 +13,8 @@ public:
 		      delay(0), rof(0.1f),
 		      health(3), firingKeyState(false)
 	{
-		color = GREEN;
+		sprite = spritePlayer;
+		color = WHITE;
 		speed = 250;
 	}
 

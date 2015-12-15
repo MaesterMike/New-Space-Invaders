@@ -12,9 +12,11 @@ public:
 		: GameObject(x, y, 12), lifespan(3.f)
 	{
 		speed = a_speed;
+		sprite = spriteBullet;
 		if(speed > 0)
 			color = CYAN;
-		else color = ORANGE;
+		else 
+			color = ORANGE;
 		velocity.y = speed;
 	}
 

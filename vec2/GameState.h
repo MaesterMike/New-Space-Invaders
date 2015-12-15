@@ -27,6 +27,17 @@ public:
 		spawnEnemy(player.position.x, BOUNDS_TOP);
 	}
 
+	void reset()
+	{
+		score = 0;
+		spawnDelay = 0;
+		spawnRate = 1.8f;
+		player = Player((BOUNDS_RIGHT + BOUNDS_LEFT) / 2, BOUNDS_BOTTOM);
+		Bullets.clear();
+		Enemies.clear();
+		particles.clear();
+	}
+
 	void update();
 	void draw();
 	void spawnBullet(float x, float y, float a_speed);
