@@ -29,4 +29,12 @@ void SplashState::draw()
 	y = WINDOW_HEIGHT * 5 / 8;
 	drawFontCentered(spriteFont, "Press Enter to start.", x, y, s, s, RED);
 	drawFontCentered(spriteFont, "Press Escape to quit.", x, y - 20, s, s, RED);
+
+	s = 12;
+	x -= 200;
+	y = WINDOW_HEIGHT * 8 / 16;
+	sfw::drawString(spriteFont, "Use the Arrow Keys to move.", x, y -= 48, 16, 16);
+	sfw::drawString(spriteFont, "Press the Space Bar to fire.", x, y -= 16, 16, 16);
+	sfw::drawString(spriteFont, "Press the P key to pause.", x, y -= 16, 16, 16);
+	sfw::drawString(spriteFont, "Press Escape to quit.", x, y -= 16, 16, 16);
 }
